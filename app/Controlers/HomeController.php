@@ -37,6 +37,20 @@ class HomeController extends Controller
         return $response;
     }
 
+    public function addAvistamiento($request, $response)
+    {
+        $titulo = $request->getParam('titulo');
+        $pajaro = $request->getParam('pajaro');
+        $lastview = $request->getParam('lastview');
+        $veces = $request->getParam('veces');
+        $latitud = $request->getParam('latitud');
+        $longitud = $request->getParam('longitud');
+        $inputs = ['titulo'=>$titulo,'pajaro'=>$pajaro,'lastview'=>$lastview,'veces'=>$veces,
+            'latitud'=>$latitud,'longitud'=>$longitud];
+        $avistamientos = Avistamiento::create($inputs);
+        return "Ok";
+    }
+
 }
 
 
